@@ -22,3 +22,5 @@ ReferenceError: database is not defined
 info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-11T12:07:15.553Z"}
 info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-11T12:07:30.245Z"}
 info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-11T12:11:57.103Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-12T10:24:38.134Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-12T10:24:55.740Z"}

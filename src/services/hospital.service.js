@@ -1,7 +1,7 @@
 import { session } from '../models/user.model'
 import { uid } from 'uid';
 
-export const registerNewUser = async (body) => {
+export const addHospitalDeatils = async (body) => {
 
     const { hospitalName, location } = body;
 
