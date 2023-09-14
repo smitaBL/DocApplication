@@ -3,6 +3,7 @@ const router = express.Router();
 
 import userRoute from './user.route';
 import hospitalRoute from './hospital.route'
+import doctorRoute from "./doctore.route"
 /**
  * Function contains Application routes
  *
@@ -14,6 +15,7 @@ const routes = () => {
   });
   router.use('/users', userRoute);
   router.use('/hospital', hospitalRoute);
+  router.use('/doctor', doctorRoute);
 
   return router;
 };
