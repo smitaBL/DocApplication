@@ -1,5 +1,6 @@
 import express from 'express'
 import * as hospitalController from '../controllers/hosital.controlleer'
+import { userAuth } from '../middlewares/auth.middleware'
 
 const router = express.Router()
 
@@ -12,6 +13,8 @@ router.post(
   '/hospitaldoctorsdetails',
   hospitalController.addHospitalDoctorsDeatails
 )
+
+router.post('/bookappointment', userAuth, hospitalController.bookAppointment)
 
 
 

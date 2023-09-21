@@ -32,42 +32,23 @@ export const addHospitalDeatils = async (body) => {
 }
 
 export const addHospitalDoctorsDeatails = async (body) => {
-  const { hospitalId, doctorName, specialty } = body;
 
-  console.log("req------------->", body)
-  // const result = await session.run(`
-  //   MATCH (d:Doctor)
-  //   WHERE ID(d) = $doctorId
-  //   MATCH (h:Hospital)
-  //   WHERE ID(h) = $hospitalId
-  //   MERGE (d)-[:WORKS_AT]->(h)
-  //   RETURN d, h
-  // `, { doctorId, hospitalId });
-
-  // const doctor = result.records[0].get('d').properties;
-  // const hospital = result.records[0].get('h').properties;
-
-  // return { doctor, hospital }
+  const { doctorId, hospitalId } = body
 
 
+  const result = await session.run(`
+    MATCH (d:Doctor)
+    WHERE d.id = $doctorId
+    MATCH (h:Hospital)
+    WHERE h.id = $hospitalId
+    MERGE (d)-[:WORKS_AT]->(h)
+    RETURN d, h
+  `, { doctorId, hospitalId });
 
-  const cypherQuery = `
-      MATCH (h: Hospital {hospitalId: $hospitalId})
-      CREATE (d:Doctor { doctorName: $doctorName, specialty:$specialty })
-      CREATE (d)-[r:WORK_AT]->(h)
-      RETURN h, d 
-    `;
-
-  const result = await session.run(cypherQuery, { doctorName, specialty, hospitalId });
-
-  if (result.records.length === 0) {
-    throw new Error("No results found.")
-  }
   const doctor = result.records[0].get('d').properties;
   const hospital = result.records[0].get('h').properties;
 
   return { doctor, hospital }
-
 
 }
 
@@ -81,5 +62,33 @@ export const getAllHospital = async () => {
   const hospitals = result.records.map(record => record.get('h').properties);
 
   return hospitals;
+
+}
+
+export const bookAppointment = async (body) => {
+
+  const { userId, doctorId, hospitalId, appointmentDate } = body; // Get user input from the request body
+  const currentTime = new Date();
+
+  const appointmentTime = `${currentTime.getHours()}:${currentTime.getMinutes()}:${currentTime.getSeconds()}`;
+
+  const result = await session.run(`
+      MATCH (u:User)
+      WHERE u.email = $userId
+      MATCH (d:Doctor)
+      WHERE d.id = $doctorId
+      MATCH (h:Hospital)
+      WHERE h.id = $hospitalId
+      CREATE (u)-[:BOOKED]->(a:Appointment { date: $appointmentDate, time: $appointmentTime })
+      CREATE (a)-[:WITH_DOCTOR]->(d)
+      CREATE (a)-[:AT_HOSPITAL]->(h)
+      RETURN a
+    `, { userId, doctorId, hospitalId, appointmentDate, appointmentTime });
+
+
+  const appointment = result.records[0].get('a').properties;
+
+  return appointment
+
 
 }

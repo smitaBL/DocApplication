@@ -32,3 +32,41 @@ info: ::ffff:127.0.0.1 - - [21/Sep/2023:06:50:08 +0000] "POST /api/v1/hospital/h
 
 info: ::ffff:127.0.0.1 - - [21/Sep/2023:06:50:14 +0000] "POST /api/v1/hospital HTTP/1.1" 201 173 "-" "Thunder Client (https://www.thunderclient.com)"
 
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:07:11 +0000] "POST /api/v1/hospital HTTP/1.1" 400 342 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:08:48 +0000] "POST /api/v1/hospital HTTP/1.1" 400 184 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:09:59 +0000] "POST /api/v1/hospital HTTP/1.1" 400 342 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:34:48 +0000] "POST /api/v1/hospital HTTP/1.1" 201 173 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:35:16 +0000] "POST /api/v1/hospital HTTP/1.1" 400 82 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:36:07 +0000] "POST /api/v1/doctor HTTP/1.1" 400 81 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:36:23 +0000] "POST /api/v1/doctor HTTP/1.1" 201 146 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:37:38 +0000] "POST /api/v1/hospital HTTP/1.1" 201 177 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:44:15 +0000] "POST /api/v1/hospital/hospitaldoctorsdetails HTTP/1.1" 201 234 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:51:28 +0000] "POST /api/v1/doctor HTTP/1.1" 201 146 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:51:44 +0000] "POST /api/v1/hospital/hospitaldoctorsdetails HTTP/1.1" 201 234 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:53:03 +0000] "POST /api/v1/hospital/hospitaldoctorsdetails HTTP/1.1" 201 230 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:56:26 +0000] "POST /api/v1/user HTTP/1.1" 404 47 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:56:33 +0000] "POST /api/v1/users HTTP/1.1" 201 223 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:07:57:40 +0000] "POST /api/v1/users/login HTTP/1.1" 201 226 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:08:22:17 +0000] "POST /api/v1/hospital/bookappointment HTTP/1.1" 401 40 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:08:22:45 +0000] "POST /api/v1/hospital/bookappointment HTTP/1.1" 401 66 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:08:23:41 +0000] "POST /api/v1/hospital/bookappointment HTTP/1.1" 400 59 "-" "Thunder Client (https://www.thunderclient.com)"
+
+info: ::ffff:127.0.0.1 - - [21/Sep/2023:08:24:52 +0000] "POST /api/v1/hospital/bookappointment HTTP/1.1" 201 98 "-" "Thunder Client (https://www.thunderclient.com)"
+
