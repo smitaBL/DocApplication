@@ -32,3 +32,19 @@ export const addHospitalDoctorsDeatails = async (req, res) => {
     })
   }
 }
+
+export const getAllHospitalDetail = async (req, res) => {
+  try {
+    const data = await hospitalService.getAllHospitalDetail()
+    res.status(HttpStatus.CREATED).json({
+      code: HttpStatus.CREATED,
+      data: data,
+      message: 'Details retrieved successfully'
+    })
+  } catch (error) {
+    res.status(HttpStatus.BAD_REQUEST).json({
+      code: HttpStatus.BAD_REQUEST,
+      message: `${error}`
+    })
+  }
+}

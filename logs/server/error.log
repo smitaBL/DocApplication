@@ -71,3 +71,21 @@ error:
     method - POST 
     IP - ::ffff:127.0.0.1
    {"timestamp":"2023-09-14T06:42:18.825Z"}
+error: 
+    status - 500 
+    message - SyntaxError: Unexpected string in JSON at position 26
+    at JSON.parse (<anonymous>)
+    at parse (/home/user/CFPWorkSpace/doctAppication/docApp/node_modules/body-parser/lib/types/json.js:89:19)
+    at /home/user/CFPWorkSpace/doctAppication/docApp/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+    at invokeCallback (/home/user/CFPWorkSpace/doctAppication/docApp/node_modules/raw-body/index.js:231:16)
+    at done (/home/user/CFPWorkSpace/doctAppication/docApp/node_modules/raw-body/index.js:220:7)
+    at IncomingMessage.onEnd (/home/user/CFPWorkSpace/doctAppication/docApp/node_modules/raw-body/index.js:280:7)
+    at IncomingMessage.emit (node:events:525:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1358:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21) 
+    url - /api/v1/hospital/hospitaldoctorsdetails 
+    method - POST 
+    IP - ::ffff:127.0.0.1
+   {"timestamp":"2023-09-21T06:02:40.119Z"}

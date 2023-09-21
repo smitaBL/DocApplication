@@ -1,0 +1,58 @@
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T05:51:01.314Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T05:51:18.117Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T05:53:50.303Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T05:54:41.493Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T05:58:59.042Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T05:59:38.545Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T05:59:57.170Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:00:16.597Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:01:28.535Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:01:44.177Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:02:31.196Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:02:37.823Z"}
+error: 
+    status - 500 
+    message - SyntaxError: Unexpected string in JSON at position 26
+    at JSON.parse (<anonymous>)
+    at parse (/home/user/CFPWorkSpace/doctAppication/docApp/node_modules/body-parser/lib/types/json.js:89:19)
+    at /home/user/CFPWorkSpace/doctAppication/docApp/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+    at invokeCallback (/home/user/CFPWorkSpace/doctAppication/docApp/node_modules/raw-body/index.js:231:16)
+    at done (/home/user/CFPWorkSpace/doctAppication/docApp/node_modules/raw-body/index.js:220:7)
+    at IncomingMessage.onEnd (/home/user/CFPWorkSpace/doctAppication/docApp/node_modules/raw-body/index.js:280:7)
+    at IncomingMessage.emit (node:events:525:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1358:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21) 
+    url - /api/v1/hospital/hospitaldoctorsdetails 
+    method - POST 
+    IP - ::ffff:127.0.0.1
+   {"timestamp":"2023-09-21T06:02:40.119Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:03:09.564Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:26:08.603Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:26:50.726Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:27:36.547Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:30:11.666Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:31:19.273Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:32:22.635Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:33:00.834Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:39:59.755Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:40:18.479Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:41:28.507Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:41:56.656Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:42:10.828Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:42:27.516Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:43:02.991Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:43:22.923Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:45:07.442Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:45:36.525Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:46:21.657Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:46:38.644Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:47:16.614Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:47:30.079Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:47:40.599Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:47:55.251Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:48:28.819Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:48:55.939Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:49:29.874Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2023-09-21T06:50:05.659Z"}

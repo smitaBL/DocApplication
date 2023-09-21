@@ -1,8 +1,10 @@
 import { session } from '../models/user.model'
-import { uid } from 'uid'
+import { uid } from 'uid';
 
 export const addHospitalDeatils = async (body) => {
   const { hospitalName, location } = body
+
+  let id = uid(15);
 
   const isExisting = await session.run(
     'MATCH (h:Hopsital {hospitalName: $hospitalName, location: $location}) RETURN h',
@@ -13,44 +15,71 @@ export const addHospitalDeatils = async (body) => {
     throw new Error('Hospital with this name already added')
   }
 
-  let _id = uid()
+  const result = await session.run(`
+      CREATE (h:Hospital { id:$id ,hospitalName: $hospitalName, location: $location })
+      RETURN ID(h) AS hospitalId, h.id as id, h.hospitalName as hospitalName, h.location as hospitalLocation;
+    `, { id, hospitalName, location });
 
-  const addedResult = await session.run(
-    'CREATE (h:Hopsital { _id : $_id, hospitalName: $hospitalName, location:$location }) RETURN h',
-    { _id, hospitalName, location }
-  )
+  const record = result.records[0];
+  const hospitalId = record.get('hospitalId').toNumber();
+  const Id = record.get('id');
+  const hositalname = record.get('hospitalName');
+  const hospitallocation = record.get('hospitalLocation');
 
-  const addedHospital = addedResult.records[0].get('h').properties
+  return { hospitalId, Id, hositalname, hospitallocation };
 
-  return addedHospital
+
 }
 
-export const addHospitalDoctorsDeatails = async (body, hospitalId) => {
-  const { doctorId } = body;
-  // const hospitalId = hospitalId;
+export const addHospitalDoctorsDeatails = async (body) => {
+  const { hospitalId, doctorName, specialty } = body;
 
-  const checkHospitalAndDoctorExists = `
-        MATCH (h:Hospital), (d:Doctor)
-        WHERE ID(h) = $hospitalId AND ID(d) = $doctorId
-        RETURN h, d
-      `;
+  console.log("req------------->", body)
+  // const result = await session.run(`
+  //   MATCH (d:Doctor)
+  //   WHERE ID(d) = $doctorId
+  //   MATCH (h:Hospital)
+  //   WHERE ID(h) = $hospitalId
+  //   MERGE (d)-[:WORKS_AT]->(h)
+  //   RETURN d, h
+  // `, { doctorId, hospitalId });
 
-  const result = await session.run(checkHospitalAndDoctorExists, { hospitalId, doctorId });
+  // const doctor = result.records[0].get('d').properties;
+  // const hospital = result.records[0].get('h').properties;
 
-  if (!result) {
-    return res.status(404).send('Hospital or doctor not found.')
+  // return { doctor, hospital }
+
+
+
+  const cypherQuery = `
+      MATCH (h: Hospital {hospitalId: $hospitalId})
+      CREATE (d:Doctor { doctorName: $doctorName, specialty:$specialty })
+      CREATE (d)-[r:WORK_AT]->(h)
+      RETURN h, d 
+    `;
+
+  const result = await session.run(cypherQuery, { doctorName, specialty, hospitalId });
+
+  if (result.records.length === 0) {
+    throw new Error("No results found.")
   }
+  const doctor = result.records[0].get('d').properties;
+  const hospital = result.records[0].get('h').properties;
 
-  const createDoctorHospitalRelationship = `
-  MATCH (h:Hospital), (d:Doctor)
-  WHERE ID(h) = $hospitalId AND ID(d) = $doctorId
-  CREATE (d)-[:WORKS_AT]->(h)
-  
-`;
-
-  let finalResult = await session.run(createDoctorHospitalRelationship, { hospitalId, doctorId });
+  return { doctor, hospital }
 
 
+}
 
-  return finalResult;
+
+export const getAllHospital = async () => {
+  const result = await session.run(`
+      MATCH (h:Hospital)
+      RETURN h
+    `);
+
+  const hospitals = result.records.map(record => record.get('h').properties);
+
+  return hospitals;
+
 }

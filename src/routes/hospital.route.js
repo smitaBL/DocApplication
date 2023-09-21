@@ -3,15 +3,16 @@ import * as hospitalController from '../controllers/hosital.controlleer'
 
 const router = express.Router()
 
-//route to create a new user
 router.post('', hospitalController.addHospitalDeatils)
 
-//route to create a new user
+
+router.get('', hospitalController.getAllHospitalDetail)
+
 router.post(
-  '/hospitaldoctorsdetails/:hospitalid',
+  '/hospitaldoctorsdetails',
   hospitalController.addHospitalDoctorsDeatails
 )
 
-router.get('', hospitalController.getAllHospitalDoctorDetail)
+
 
 export default router

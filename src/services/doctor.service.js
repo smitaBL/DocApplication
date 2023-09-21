@@ -3,7 +3,7 @@ import { uid } from 'uid';
 
 export const addDoctorDeatils = async (body) => {
 
-    console.log(body)
+    let id = uid(15);
 
     const { doctorName, specialty } = body;
 
@@ -16,15 +16,18 @@ export const addDoctorDeatils = async (body) => {
         throw new Error("Doctor deatails are already added")
     }
 
-    let _id = uid();
-
-    const addedResult = await session.run(
-        'CREATE (d:Doctor { _id : $_id, doctorName: $doctorName, specialty:$specialty }) RETURN d',
-        { _id, doctorName, specialty }
-    );
-
-    const addedDoctor = addedResult.records[0].get('d').properties;
+    const result = await session.run(`
+      CREATE (d:Doctor {id:$id, doctorName: $doctorName, specialty:$specialty  })
+      RETURN ID(d) AS doctorId, d.id as id,d.doctorName AS doctorName, d.specialty AS doctorSpecialty;
+    `, { id, doctorName, specialty });
 
 
-    return addedDoctor;
+    const record = result.records[0];
+    const doctorId = record.get('doctorId').toNumber();
+    const Id = record.get('id');
+    const docName = record.get('doctorName');
+    const doctorSpecialty = record.get('doctorSpecialty');
+
+
+    return { doctorId, Id, docName, doctorSpecialty };
 };
