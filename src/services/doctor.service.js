@@ -31,3 +31,26 @@ export const addDoctorDeatils = async (body) => {
 
     return { doctorId, Id, docName, doctorSpecialty };
 };
+
+export const addReview = async (body) => {
+
+    const id = uid(15);
+
+    const { userId, doctorId, reviewText, rating } = body;
+
+    const result = await session.run(`
+      MATCH (u:User)
+      WHERE u.email = $userId
+      MATCH (d:Doctor)
+      WHERE d.id = $doctorId
+      CREATE (u)-[:WROTE]->(r:Review { id:$id,text: $reviewText, rating: $rating })
+      CREATE (r)-[:FOR_DOCTOR]->(d)
+      RETURN r
+    `, { userId, doctorId, reviewText, rating, id });
+
+    const review = result.records[0].get('r').properties;
+
+    return review;
+
+
+};

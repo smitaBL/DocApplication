@@ -17,3 +17,19 @@ export const addDoctorDeatils = async (req, res) => {
         });
     }
 };
+
+export const addReview = async (req, res) => {
+    try {
+        const data = await docterService.addReview(req.body);
+        res.status(HttpStatus.CREATED).json({
+            code: HttpStatus.CREATED,
+            data: data,
+            message: 'Review added successfully'
+        });
+    } catch (error) {
+        res.status(HttpStatus.BAD_REQUEST).json({
+            code: HttpStatus.BAD_REQUEST,
+            message: `${error}`
+        });
+    }
+};
