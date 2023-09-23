@@ -64,3 +64,19 @@ export const bookAppointment = async (req, res) => {
     })
   }
 }
+
+export const appointmentHistory = async (req, res) => {
+  try {
+    const data = await hospitalService.appointmentHistory(req.body)
+    res.status(HttpStatus.CREATED).json({
+      code: HttpStatus.CREATED,
+      data: data,
+      message: 'Details added successfully'
+    })
+  } catch (error) {
+    res.status(HttpStatus.BAD_REQUEST).json({
+      code: HttpStatus.BAD_REQUEST,
+      message: `${error}`
+    })
+  }
+}

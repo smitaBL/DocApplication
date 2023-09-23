@@ -67,7 +67,7 @@ export const getAllHospital = async () => {
 
 export const bookAppointment = async (body) => {
 
-  const { userId, doctorId, hospitalId, appointmentDate } = body; // Get user input from the request body
+  const { userId, doctorId, hospitalId, appointmentDate } = body;
   const currentTime = new Date();
 
   const appointmentTime = `${currentTime.getHours()}:${currentTime.getMinutes()}:${currentTime.getSeconds()}`;
@@ -88,7 +88,28 @@ export const bookAppointment = async (body) => {
 
   const appointment = result.records[0].get('a').properties;
 
-  return appointment
+  return appointment;
 
+
+}
+
+
+export let appointmentHistory = async (body) => {
+
+  const userId = body.userId
+
+  const result = await session.run(`
+  MATCH (u:User)-[:BOOKED]->(a:Appointment)-[:WITH_DOCTOR]->(d:Doctor)
+  WHERE u.email = $userId
+  RETURN a, d
+`, { userId });
+
+  const appointments = result.records.map(record => {
+    const appointment = record.get('a').properties;
+    const doctor = record.get('d').properties;
+    return { appointment, doctor };
+  });
+
+  return appointments;
 
 }

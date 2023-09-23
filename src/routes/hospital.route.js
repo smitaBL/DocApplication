@@ -16,6 +16,8 @@ router.post(
 
 router.post('/bookappointment', userAuth, hospitalController.bookAppointment)
 
+router.get('/appointmenthistory', userAuth, hospitalController.appointmentHistory)
+
 
 
 export default router
