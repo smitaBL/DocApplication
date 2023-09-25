@@ -1,0 +1,382 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "V1",
+        "title": "Doctor application"
+    },
+    "host": "localhost:3000",
+    "basePath": "/api/v1/",
+    "tags": [],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/users": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "description": "Register user...",
+                "parameters": [
+                    {
+                        "name": "Register new name",
+                        "in": "body",
+                        "description": "Register user",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "User created successfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/users/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "description": "User login",
+                "parameters": [
+                    {
+                        "name": "login user",
+                        "in": "body",
+                        "description": "User login",
+                        "schema": {
+                            "$ref": "#/definitions/login"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "sucessfully logged in"
+                    },
+                    "404": {
+                        "description": "email or password doesn't match"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/hospital": {
+            "post": {
+                "tags": [
+                    "Hospital"
+                ],
+                "summary": "Add hospital details",
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "Add hospital details",
+                        "in": "body",
+                        "description": "Add hospital",
+                        "required": false,
+                        "type": "string",
+                        "schema": {
+                            "$ref": "#/definitions/hospital"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Added hospital details succesfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Hospital"
+                ],
+                "summary": "Get all hospital details",
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "Hospital details",
+                        "description": "Get all hospital details",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Hospital fetched successfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/hospital/hospitaldoctorsdetails": {
+            "post": {
+                "tags": [
+                    "Hospital"
+                ],
+                "summary": "Add doctor details for hospital",
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "Add hospital doctors details",
+                        "in": "body",
+                        "required": false,
+                        "type": "string",
+                        "schema": {
+                            "$ref": "#/definitions/hospitalsDoctorDetails"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Details added successfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/hospital/bookappointment": {
+            "post": {
+                "tags": [
+                    "Hospital"
+                ],
+                "summary": "",
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "Book appointment",
+                        "in": "body",
+                        "required": false,
+                        "type": "string",
+                        "schema": {
+                            "$ref": "#/definitions/appointment"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Appoint booked successfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/hospital/appointmenthistory": {
+            "get": {
+                "tags": [
+                    "Hospital"
+                ],
+                "summary": "Get appointment history",
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "Appointment history",
+                        "description": "Get appointment history",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Appointment history fetched successfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/doctor": {
+            "post": {
+                "tags": [
+                    "Doctor"
+                ],
+                "summary": "Add doctor details",
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "Add doctor details",
+                        "in": "body",
+                        "description": "Add doctor",
+                        "required": false,
+                        "type": "string",
+                        "schema": {
+                            "$ref": "#/definitions/doctor"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Added doctor details succesfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/doctor/addreview": {
+            "post": {
+                "tags": [
+                    "Doctor"
+                ],
+                "summary": "Add review for doctor ",
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": " review for doctor",
+                        "in": "body",
+                        "description": "Add review for doctor",
+                        "required": false,
+                        "type": "string",
+                        "schema": {
+                            "$ref": "#/definitions/doctorreview"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Added doctor details succesfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "JWT": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "User": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "login": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "hospital": {
+            "type": "object",
+            "properties": {
+                "hospitalName": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                }
+            }
+        },
+        "hospitalsDoctorDetails": {
+            "type": "object",
+            "properties": {
+                "hospitalId": {
+                    "type": "string"
+                },
+                "doctorId": {
+                    "type": "string"
+                }
+            }
+        },
+        "appointment": {
+            "type": "object",
+            "properties": {
+                "hospitalId": {
+                    "type": "220646da081bd94"
+                },
+                "doctorId": {
+                    "type": "314ec70d25a27de"
+                },
+                "appointmentDate": {
+                    "type": "23/09/2023"
+                }
+            }
+        },
+        "doctor": {
+            "type": "object",
+            "properties": {
+                "doctorName": {
+                    "type": "Nikita"
+                },
+                "specialty": {
+                    "type": " DGO"
+                }
+            }
+        },
+        "doctorreview": {
+            "type": "object",
+            "properties": {
+                "doctorId": "314ec70d25a27de",
+                "reviewText": "good service",
+                " rating": 3.5
+            }
+        }
+    }
+}

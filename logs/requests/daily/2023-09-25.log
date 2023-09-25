@@ -1,0 +1,2 @@
+info: ::ffff:127.0.0.1 - - [25/Sep/2023:10:14:57 +0000] "GET /api-docs/ HTTP/1.1" 404 47 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/117.0"
+

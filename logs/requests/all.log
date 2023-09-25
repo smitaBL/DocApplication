@@ -321,3 +321,5 @@ info: ::ffff:127.0.0.1 - - [23/Sep/2023:08:26:55 +0000] "GET /api/v1/hospital/ap
 
 info: ::ffff:127.0.0.1 - - [23/Sep/2023:08:27:03 +0000] "GET /api/v1/hospital/appointmenthistory HTTP/1.1" 201 190 "-" "Thunder Client (https://www.thunderclient.com)"
 
+info: ::ffff:127.0.0.1 - - [25/Sep/2023:10:14:57 +0000] "GET /api-docs/ HTTP/1.1" 404 47 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/117.0"
+
