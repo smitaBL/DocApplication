@@ -53,7 +53,7 @@ export const addHospitalDoctorsDeatails = async (body) => {
 }
 
 
-export const getAllHospital = async () => {
+export const getAllHospitalDetail = async () => {
   const result = await session.run(`
       MATCH (h:Hospital)
       RETURN h
