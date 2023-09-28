@@ -259,17 +259,17 @@
                 "tags": [
                     "Doctor"
                 ],
-                "summary": "Add review for doctor ",
+                "summary": "Add review for doctor",
                 "produces": [],
                 "parameters": [
                     {
-                        "name": " review for doctor",
+                        "name": "review for doctor",
                         "in": "body",
                         "description": "Add review for doctor",
                         "required": false,
                         "type": "string",
                         "schema": {
-                            "$ref": "#/definitions/doctorreview"
+                            "$ref": "#/definitions/doctor/doctorreview"
                         }
                     }
                 ],
@@ -354,10 +354,10 @@
             "type": "object",
             "properties": {
                 "hospitalId": {
-                    "type": "220646da081bd94"
+                    "type": "string"
                 },
                 "doctorId": {
-                    "type": "314ec70d25a27de"
+                    "type": "string"
                 },
                 "appointmentDate": {
                     "type": "23/09/2023"
@@ -368,19 +368,25 @@
             "type": "object",
             "properties": {
                 "doctorName": {
-                    "type": "Nikita"
+                    "type": "string"
                 },
                 "specialty": {
-                    "type": " DGO"
+                    "type": "string"
                 }
             }
         },
         "doctorreview": {
             "type": "object",
             "properties": {
-                "doctorId": "314ec70d25a27de",
-                "reviewText": "good service",
-                " rating": 3.5
+                "doctorId": {
+                    "type": "string"
+                },
+                "reviewText": {
+                    "type": "string"
+                },
+                " rating": {
+                    "type": 3.5
+                }
             }
         }
     }
