@@ -269,7 +269,7 @@
                         "required": false,
                         "type": "string",
                         "schema": {
-                            "$ref": "#/definitions/doctor/doctorreview"
+                            "$ref": "#/definitions/doc"
                         }
                     }
                 ],
@@ -375,7 +375,7 @@
                 }
             }
         },
-        "doctorreview": {
+        "doc": {
             "type": "object",
             "properties": {
                 "doctorId": {
@@ -385,7 +385,7 @@
                     "type": "string"
                 },
                 " rating": {
-                    "type": 3.5
+                    "type": "3.5"
                 }
             }
         }
